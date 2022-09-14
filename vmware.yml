@@ -1,0 +1,22 @@
+---
+- name: Test Automation Hub
+  hosts: all
+  connection: local
+  become: true
+  tasks:
+   - community.vmware.vca_fw:
+       instance_id: 'b15ff1e5-1024-4f55-889f-ea0209726282'
+       vdc_name: 'benz_ansible'
+       fw_rules:
+         - description: "ben testing"
+           source_ip: "Any"
+           dest_ip: 192.0.2.23
+         - description: "ben testing 2"
+           source_ip: 192.0.2.50
+           source_port: "Any"
+           dest_port: "22"
+           dest_ip: 192.0.2.101
+           is_enable: "true"
+           enable_logging: "false"
+           protocol: "Tcp"
+           policy: "allow"
