@@ -17,7 +17,6 @@
       regexp: '^shadow\:'
       line: 'shadow:         compat sss'
   - name:  Task 1 - verify web/database processes are not running
-    shell: if ps -eaf | egrep 'apache|http|nginx|mysql|postgresql|mariadb'|grep -v grep > /dev/null ;then echo 'process_running';else echo 'process_not_running';fi
-    executable: "/bin/bash"
+    shell: "if ps -eaf | egrep 'apache|http|nginx|mysql|postgresql|mariadb'|grep -v grep > /dev/null ;then echo 'process_running';else echo 'process_not_running';fi"
     ignore_errors: true
     register: app_process_check
