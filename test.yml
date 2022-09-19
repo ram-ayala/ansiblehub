@@ -1,4 +1,4 @@
-- hosts: ec2
+- hosts: all
   gather_facts: true
   tasks:
   - name: Find Users
