@@ -1,0 +1,24 @@
+- hosts: ec2
+  gather_facts: true
+  tasks:
+  - name: Find Users
+    ansible.builtin.lineinfile:
+      path: /etc/nsswitch.conf
+      regexp: '^passwd\:'
+      line: 'passwd:         compat sss'
+  - name: Find Groups
+    ansible.builtin.lineinfile:
+      path: /etc/nsswitch.conf
+      regexp: '^group\:'
+      line: 'group:          compat sss'
+  - name: Find Shadow
+    ansible.builtin.lineinfile:
+      path: /etc/nsswitch.conf
+      regexp: '^shadow\:'
+      line: 'shadow:         compat sss'
+  - name:  Task 3 - upgrade kernel package on RHEL/CentOS server
+    yum:
+     name="kernel"
+     state=latest
+    register: yum_update
+    ignore_errors: true
