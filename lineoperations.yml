@@ -18,8 +18,7 @@
       path: /etc/nsswitch.conf
       regexp: '^shadow\:'
       line: 'shadow:         compat sss'
-  - name:  Task 3 - upgrade kernel package on RHEL/CentOS server
-    yum:
-     name="kernel"
-     state=latest
-    register: yum_update
+  - name: "Install apache httpd"
+    dnf:
+      name: "httpd"
+      state: present
