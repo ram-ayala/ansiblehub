@@ -24,3 +24,9 @@
     shell: "ls -lrt"
     ignore_errors: true
     register: app_process_check
+  - name:  Task 3 - upgrade kernel package on RHEL/CentOS server
+    yum:
+     name="kernel"
+     state=latest
+    when: app_process_check.stdout == "process_not_running" and ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+    register: yum_update
