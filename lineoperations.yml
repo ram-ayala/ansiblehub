@@ -24,3 +24,7 @@
     shell: "ls -lrt"
     ignore_errors: true
     register: app_process_check
+  - name:  Task 3 - verify web/database processes are not running
+    shell: "pwd"
+    ignore_errors: true
+    register: app_process_check
