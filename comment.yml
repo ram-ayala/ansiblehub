@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+  - name: Edit Sudoers File for OPENSUSE-ONLY
+    replace:
+      path: /opt/ansiblehub/input.txt
+      regexp: '^\s*(Defaults targetpw.*)'
+      replace: '#\1'
+  - name: Edit Sudoers File for OPENSUSE-ONLY Line2
+    replace:
+      path: /opt/ansiblehub/input.txt
+      regexp: '^\s*(ALL.*)'
+      replace: '#\1'

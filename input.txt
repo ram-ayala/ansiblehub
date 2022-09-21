@@ -1,0 +1,2 @@
+#Defaults targetpw   # ask for the password of the target user i.e. root
+#ALL   ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
